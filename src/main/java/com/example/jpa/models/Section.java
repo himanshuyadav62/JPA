@@ -3,6 +3,8 @@ package com.example.jpa.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +31,7 @@ public class Section {
     private int    sectionOrder; 
 
     @ManyToOne
-    @JoinColumn(name = "courseId")
+    @JsonBackReference
     private Course course; 
 
     @OneToMany(mappedBy = "section" ,cascade = CascadeType.ALL)

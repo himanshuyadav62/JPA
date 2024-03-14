@@ -2,6 +2,9 @@ package com.example.jpa.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,9 +41,12 @@ public class Course {
         joinColumns = @JoinColumn(name = "courseId"),
         inverseJoinColumns = @JoinColumn(name = "authorId")
     )
-   private List<Author> authors;
+    private List<Author> authors;
     
+   
    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+   @JsonManagedReference
     private List<Section> sections; 
+    
    
 }
