@@ -12,7 +12,6 @@ import com.example.jpa.repository.SectionRepository;
 import java.util.List;
 import java.util.Optional;
 
-import javax.swing.text.html.Option;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
