@@ -1,10 +1,11 @@
 package com.example.jpa.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ public class Lecture {
     private String lectureName;
     
     @ManyToOne
-    @JoinColumn(name = "sectionId")
+    @JsonBackReference
     private Section section; 
 
     @OneToOne(mappedBy = "lecture")
